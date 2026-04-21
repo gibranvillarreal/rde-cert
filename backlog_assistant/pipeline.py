@@ -36,6 +36,13 @@ def _call_api(client: anthropic.Anthropic, messages: list, tools=None, tool_choi
             raise
 
 
+def _strip_code_fence(text: str) -> str:
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1] if "\n" in text else text
+        text = text.rsplit("```", 1)[0]
+    return text.strip()
+
+
 def _log(verbose: bool, msg: str):
     if verbose:
         click.echo(msg)
@@ -97,7 +104,7 @@ def critique_stories(stories: list[dict], client: anthropic.Anthropic, verbose: 
         max_tokens=8192,
     )
 
-    raw = response.content[0].text.strip()
+    raw = _strip_code_fence(response.content[0].text.strip())
     try:
         result = json.loads(raw)
     except json.JSONDecodeError as e:

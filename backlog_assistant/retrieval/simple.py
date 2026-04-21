@@ -6,6 +6,13 @@ import click
 from ..prompts import DEDUP_PROMPT, SYSTEM_PROMPT
 
 
+def _strip_code_fence(text: str) -> str:
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1] if "\n" in text else text
+        text = text.rsplit("```", 1)[0]
+    return text.strip()
+
+
 def check_duplicates(
     requirements: list[str], backlog: list[dict], client: anthropic.Anthropic, verbose: bool = False
 ) -> dict:
@@ -33,7 +40,7 @@ def check_duplicates(
         }],
     )
 
-    raw = response.content[0].text.strip()
+    raw = _strip_code_fence(response.content[0].text.strip())
     try:
         result = json.loads(raw)
     except json.JSONDecodeError as e:
