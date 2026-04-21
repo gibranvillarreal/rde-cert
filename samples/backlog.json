@@ -1,0 +1,58 @@
+[
+  {
+    "id": "PROJ-001",
+    "title": "User registration and login",
+    "description": "Allow users to register with email and password and log in securely with session management",
+    "status": "done",
+    "category": "feature"
+  },
+  {
+    "id": "PROJ-002",
+    "title": "Project dashboard",
+    "description": "Main dashboard showing all active projects, their status, and key metrics",
+    "status": "done",
+    "category": "feature"
+  },
+  {
+    "id": "PROJ-003",
+    "title": "Task assignment and tracking",
+    "description": "Assign tasks to team members, set due dates, and track completion status",
+    "status": "in-progress",
+    "category": "feature"
+  },
+  {
+    "id": "PROJ-004",
+    "title": "Email notifications for task updates",
+    "description": "Send email notifications when tasks are assigned, updated, or change status",
+    "status": "in-progress",
+    "category": "feature"
+  },
+  {
+    "id": "PROJ-005",
+    "title": "Export project report as PDF",
+    "description": "Generate and download a project summary report as a PDF file",
+    "status": "todo",
+    "category": "feature"
+  },
+  {
+    "id": "PROJ-006",
+    "title": "Search across projects and tasks",
+    "description": "Full-text search bar to find tasks, projects, and team members",
+    "status": "todo",
+    "category": "feature"
+  },
+  {
+    "id": "PROJ-007",
+    "title": "User profile and settings",
+    "description": "Users can update their display name, avatar, and notification preferences",
+    "status": "todo",
+    "category": "feature"
+  },
+  {
+    "id": "PROJ-008",
+    "title": "Dark mode support",
+    "description": "Toggle between light and dark UI themes, persisted per user",
+    "status": "backlog",
+    "category": "feature"
+  }
+]

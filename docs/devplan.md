@@ -8,7 +8,7 @@
 ---
 
 ## Ticket 1 — Project Setup & Scaffolding
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Set up the base project structure, dependencies, and Claude Code configuration.
 
@@ -28,7 +28,7 @@ Set up the base project structure, dependencies, and Claude Code configuration.
 ---
 
 ## Ticket 2 — Input Parsers
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Implement text and PDF parsers with a consistent interface.
 
@@ -48,7 +48,7 @@ Implement text and PDF parsers with a consistent interface.
 ---
 
 ## Ticket 3 — Schemas & Prompt Templates
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Define all tool use schemas and prompt templates before writing pipeline logic.
 
@@ -70,7 +70,7 @@ Define all tool use schemas and prompt templates before writing pipeline logic.
 ---
 
 ## Ticket 4 — Pipeline Step 1: Requirement Extraction
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Implement the first step of the pipeline: extract clean requirements from raw text.
 
@@ -90,7 +90,7 @@ Implement the first step of the pipeline: extract clean requirements from raw te
 ---
 
 ## Ticket 5 — Pipeline Step 2: Dedup Check
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Compare extracted requirements against the existing backlog to avoid duplicate stories.
 
@@ -109,7 +109,7 @@ Compare extracted requirements against the existing backlog to avoid duplicate s
 ---
 
 ## Ticket 6 — Pipeline Step 3: Story Generation (Tool Use)
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Generate structured user stories from new requirements using Claude tool use.
 
@@ -129,7 +129,7 @@ Generate structured user stories from new requirements using Claude tool use.
 ---
 
 ## Ticket 7 — Pipeline Step 4: Self-Critique & Refinement
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Add a critique pass that reviews generated stories and flags quality issues.
 
@@ -148,7 +148,7 @@ Add a critique pass that reviews generated stories and flags quality issues.
 ---
 
 ## Ticket 8 — Output Formatter
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Write final output to JSON file and print a readable summary to stdout.
 
@@ -166,7 +166,7 @@ Write final output to JSON file and print a readable summary to stdout.
 ---
 
 ## Ticket 9 — CLI Entry Point & Wiring
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Wire everything together in `main.py` and finalize the CLI interface.
 
@@ -187,7 +187,7 @@ Wire everything together in `main.py` and finalize the CLI interface.
 ---
 
 ## Ticket 10 — Sample Data & Manual Testing
-**Status:** `[ ]`
+**Status:** `[~]`
 
 Create realistic sample inputs and verify the pipeline produces good output for each.
 
@@ -209,7 +209,7 @@ Create realistic sample inputs and verify the pipeline produces good output for 
 ---
 
 ## Ticket 11 — Claude Code Integration
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Finalize Claude Code configuration and slash commands for demo use.
 
@@ -227,7 +227,7 @@ Finalize Claude Code configuration and slash commands for demo use.
 ---
 
 ## Ticket 12 — Documentation & Reflection
-**Status:** `[ ]`
+**Status:** `[x]`
 
 Write the final README, document prompts used, and write the reflection section.
 

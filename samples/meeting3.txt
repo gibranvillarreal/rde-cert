@@ -1,0 +1,45 @@
+Technical Requirements — Security & Integration Workstream
+Author: Diego (Tech Lead)
+Date: April 21, 2026
+
+---
+
+OVERVIEW
+
+Following the security review conducted last week, the following requirements have
+been identified for the platform. These are non-negotiable for enterprise customers
+and must be addressed before any SOC 2 audit.
+
+REQUIREMENTS
+
+1. Two-Factor Authentication (2FA)
+All user accounts must support two-factor authentication. We should support
+authenticator apps (TOTP standard, e.g. Google Authenticator, Authy) as the primary
+method, with SMS as a fallback. 2FA should be enforceable at the organization level
+by admins — meaning an admin can require all members of their org to have 2FA enabled
+before accessing the platform.
+
+2. Audit Log
+Every action that modifies data must be logged: task creation, edits, deletions,
+status changes, user invitations, permission changes, and login events. Logs must be
+immutable, retained for a minimum of 90 days, and exportable as CSV. Admins should
+be able to filter logs by user, date range, and action type.
+
+NOTE: This requirement was also raised by Acme Corp in the client session. It appears
+in both workstreams and should be treated as a single consolidated ticket.
+
+3. API Access and Webhooks
+Enterprise customers need programmatic access to their data. We need a REST API
+with token-based authentication (API keys per user or per org). Additionally, we
+need a webhook system so customers can receive real-time events when tasks are
+created or updated in their own systems (Slack, Jira, custom integrations).
+
+4. Single Sign-On (SSO)
+Large enterprise customers require SSO via SAML 2.0 or OAuth2 with their identity
+provider (Okta, Azure AD). This is a hard blocker for at least two prospective
+enterprise deals currently in the pipeline.
+
+PRIORITY
+Items 1 (2FA) and 3 (API/Webhooks) are targeted for Q3. Item 4 (SSO) is Q4.
+Item 2 (Audit Log) timing depends on coordination with the client requirements
+workstream.

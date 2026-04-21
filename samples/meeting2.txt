@@ -1,0 +1,57 @@
+Client Requirements Session — Acme Corp
+Date: April 21, 2026
+Attendees: Linda (Acme - Product Owner), Tom (Acme - IT Manager),
+           Sarah (PM), Diego (Tech Lead)
+
+---
+
+Linda opened by saying Acme's primary concern is visibility into how their team
+spends time on projects. They are evaluating us against two other tools and the
+key differentiators they care about are time tracking, client access, and billing.
+
+REQUIREMENTS GATHERED:
+
+Time Tracking
+Tom was very clear: every task needs a built-in timer. Team members should be able
+to start and stop a timer on any task, and the system should accumulate total hours.
+They want to see time logged per task, per project, and per team member. This is a
+must-have, not a nice-to-have. Tom said they have tried using a separate time
+tracking tool but the context switching is painful.
+
+Recurring Tasks
+Linda mentioned that Acme runs the same set of review tasks every two weeks. They
+need the ability to mark a task as recurring with a configurable interval (daily,
+weekly, bi-weekly, monthly). The task should auto-create with the same description
+and assignee when the interval triggers.
+
+Client Portal
+This was the most discussed item. Acme wants a read-only portal where their end
+clients can log in and see project status, milestones, and completed deliverables —
+without seeing internal comments, team discussions, or pricing. Tom emphasized the
+word "read-only" multiple times. Separate login, separate view.
+
+Invoicing and Billing Integration
+Linda asked whether we can generate invoices from logged hours. They use QuickBooks.
+She acknowledged this might be out of scope for the initial release but wanted it
+flagged. Diego noted this would require a QuickBooks API integration and is a large
+piece of work. Agreed to mark as future consideration but document the requirement.
+
+Search
+Tom asked about search. Diego confirmed it is already in our backlog. Tom wants to
+be sure search works across task descriptions and comments, not just titles.
+
+User Profiles
+Linda wants team members to have visible profiles with their role and contact info
+so that Acme stakeholders can know who to reach out to. This sounded like an
+extension of the existing user profile feature already in our backlog.
+
+Audit Log
+Tom raised a compliance requirement: they need to be able to see who changed what
+and when. An audit trail for task edits, status changes, and user management actions.
+This is new scope and Tom confirmed it is a hard requirement for their IT policy.
+
+AGREED NEXT STEPS:
+- Sarah to write up formal requirements doc from these notes
+- Diego to estimate time tracking and recurring tasks for next sprint
+- Client portal to be scoped as a separate workstream
+- Billing integration flagged as Phase 2

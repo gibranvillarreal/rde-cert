@@ -1,0 +1,45 @@
+Sprint Planning Meeting — Team Alpha
+Date: April 21, 2026
+Attendees: Sarah (PM), Diego (Tech Lead), Priya (Frontend), Marcus (Backend)
+
+---
+
+Sarah opened the meeting by reviewing the current backlog state. We have the task
+assignment feature mostly done but need to round out collaboration features before
+the next demo.
+
+DISCUSSION POINTS:
+
+1. Comment threads on tasks
+Diego raised that users are asking for the ability to leave comments directly on
+tasks so the whole conversation stays in context. Priya confirmed this is doable
+on the frontend. We need threaded comments, not just a flat list. Marcus mentioned
+we'll need to store parent/child comment relationships in the database. Sarah said
+this is high priority for the demo.
+
+2. File attachments
+The client wants to be able to attach files (images, PDFs, docs) directly to tasks.
+Marcus said we should cap file size at 10MB per attachment and support common
+formats. Priya will need to add an upload component. This came up multiple times
+in customer feedback.
+
+3. Sprint and milestone planning view
+Sarah wants a dedicated view for sprint planning — a board where you can group tasks
+by sprint or milestone, drag and drop to reassign, and see total story points per
+sprint. This is new scope but considered essential for the next quarter.
+
+4. Notifications
+We talked about the email notifications feature already in the backlog. The team
+agreed we also need in-app notifications — a bell icon with a dropdown — not just
+emails. This is a separate piece of work from the existing email work.
+
+5. Export to PDF
+The export to PDF feature is already in the backlog. Sarah confirmed it is still
+needed and should include sprint summaries, not just project summaries. No change
+to the existing ticket.
+
+ACTION ITEMS:
+- Diego to break down comment threads into sub-tasks
+- Priya to spike file upload component by end of week
+- Marcus to design attachment storage schema
+- Sarah to confirm sprint planning view priority with stakeholders

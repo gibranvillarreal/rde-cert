@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python test_imports.py)",
+      "Bash(del \"c:/Users/gibran.villarreal/Documents/RED CERTIFICATION/test_imports.py\")"
+    ]
+  }
+}
