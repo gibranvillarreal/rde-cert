@@ -5,14 +5,9 @@ import time
 import anthropic
 import click
 
-from .prompts import (
-    SYSTEM_PROMPT,
-    EXTRACTION_PROMPT,
-    DEDUP_PROMPT,
-    GENERATION_PROMPT,
-    CRITIQUE_PROMPT,
-)
+from .prompts import SYSTEM_PROMPT, EXTRACTION_PROMPT, GENERATION_PROMPT, CRITIQUE_PROMPT
 from .schemas import USER_STORY_SCHEMA
+from .retrieval.simple import check_duplicates
 
 MODEL = "claude-sonnet-4-6"
 MAX_RETRIES = 2
@@ -67,34 +62,6 @@ def extract_requirements(notes_text: str, client: anthropic.Anthropic, verbose: 
     return requirements
 
 
-# ── Step 2 ─────────────────────────────────────────────────────────────────────
-
-def check_duplicates(
-    requirements: list[str], backlog: list[dict], client: anthropic.Anthropic, verbose: bool = False
-) -> dict:
-    _log(verbose, "  [Step 2] Checking for duplicates against existing backlog...")
-
-    requirements_text = "\n".join(f"{i + 1}. {r}" for i, r in enumerate(requirements))
-    backlog_text = json.dumps(backlog, indent=2)
-
-    response = _call_api(
-        client,
-        messages=[{
-            "role": "user",
-            "content": DEDUP_PROMPT.format(backlog=backlog_text, requirements=requirements_text),
-        }],
-    )
-
-    raw = response.content[0].text.strip()
-    try:
-        result = json.loads(raw)
-    except json.JSONDecodeError as e:
-        raise ValueError(f"Dedup step returned invalid JSON.\nError: {e}\nRaw: {raw}")
-
-    _log(verbose, f"     → {len(result.get('new', []))} new, {len(result.get('duplicates', []))} duplicates")
-    return result
-
-
 # ── Step 3 ─────────────────────────────────────────────────────────────────────
 
 def generate_stories(requirements: list[str], client: anthropic.Anthropic, verbose: bool = False) -> list[dict]:
@@ -136,7 +103,7 @@ def critique_stories(stories: list[dict], client: anthropic.Anthropic, verbose: 
     except json.JSONDecodeError as e:
         raise ValueError(f"Critique step returned invalid JSON.\nError: {e}\nRaw: {raw}")
 
-    # Merge refined stories back into the original list, replacing where issues were found
+    # Merge refined stories back — replace originals where critique found issues
     if result.get("has_issues") and result.get("refined_stories"):
         refined_map = {r["original_title"]: r["corrected_story"] for r in result["refined_stories"]}
         result["final_stories"] = [
@@ -173,7 +140,7 @@ def run(notes_text: str, existing_backlog: list[dict], verbose: bool = False) ->
     if not requirements:
         return _empty_result("No requirements could be extracted from the provided notes.")
 
-    # Step 2
+    # Step 2 — delegated to retrieval.simple (swap this module for pgvector RAG later)
     dedup = check_duplicates(requirements, existing_backlog, client, verbose)
     new_requirements = dedup.get("new", requirements)
     duplicates = dedup.get("duplicates", [])

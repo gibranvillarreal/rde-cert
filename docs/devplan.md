@@ -187,7 +187,7 @@ Wire everything together in `main.py` and finalize the CLI interface.
 ---
 
 ## Ticket 10 — Sample Data & Manual Testing
-**Status:** `[~]`
+**Status:** `[~]` ← pending your API key test run
 
 Create realistic sample inputs and verify the pipeline produces good output for each.
 

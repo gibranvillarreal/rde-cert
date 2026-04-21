@@ -167,7 +167,7 @@ Future: add `markdown_formatter.py`, `csv_formatter.py`, `jira_formatter.py`.
         "description": "Rough complexity estimate"
       }
     },
-    "required": ["title", "as_a", "i_want", "so_that", "acceptance_criteria", "priority", "category"]
+    "required": ["title", "as_a", "i_want", "so_that", "acceptance_criteria", "priority", "category", "estimated_complexity"]
   }
 }
 ```

@@ -97,6 +97,9 @@ User stories to review:
 For each issue found, provide a specific, corrected version of that story.
 For stories with no issues, do not mention them.
 
+IMPORTANT: In the `original_title` field, copy the title exactly as it appears in the
+input — same capitalisation, same punctuation. Do not paraphrase or reformat it.
+
 Respond in this exact JSON format:
 {{
   "has_issues": true or false,
