@@ -28,12 +28,6 @@ cp .env.example .env
 # Edit .env and add your ANTHROPIC_API_KEY
 ```
 
-**3. (Optional) Generate the PDF sample**
-```bash
-pip install fpdf2
-python samples/generate_pdf.py
-```
-
 ## Usage
 
 ```bash
@@ -51,6 +45,17 @@ python main.py --notes samples/meeting3.pdf --backlog samples/backlog.json
 ```
 
 Supported input formats: `.txt`, `.md`, `.pdf`
+
+### Converting a text file to PDF
+
+The repo includes a utility to convert any `.txt` file to PDF — useful for testing the PDF
+parsing path without needing an external tool:
+
+```bash
+pip install fpdf2
+python samples/generate_pdf.py samples/meeting3.txt          # → samples/meeting3.pdf
+python samples/generate_pdf.py notes.txt --output out.pdf    # custom output path
+```
 
 ## Pipeline
 
@@ -138,6 +143,17 @@ Three realistic scenarios in `samples/`:
 | `meeting3.txt` | Security & integration spec | None |
 
 See `samples/expected-outputs.md` for detailed expected output criteria per scenario.
+
+## Claude Code Shortcuts
+
+If you're using [Claude Code](https://claude.ai/code) inside this repo, two slash commands are registered under `.claude/commands/`:
+
+| Command | What it does |
+|---|---|
+| `/project:run-sample` | Runs the pipeline against `samples/meeting1.txt` with `--verbose` and reviews output quality |
+| `/project:test-all` | Runs all three sample scenarios and reports story counts, duplicates, and any issues |
+
+Invoke them from the Claude Code chat panel — no need to type the full `python main.py ...` command manually.
 
 ## Requirements
 
